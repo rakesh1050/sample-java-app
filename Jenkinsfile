@@ -15,11 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 // // Run Maven on a Unix agent.
-               sh """ 
-                who
-                id
-                mvn -Dmaven.test.failure.ignore=true clean package
-                """
+               sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -27,7 +23,11 @@ pipeline {
         }
         stage("Docker Build"){
             steps{
-                sh "docker image build -t rakesh1050/sampleapp ."
+                sh """
+                who
+                id
+                docker image build -t rakesh1050/sampleapp .
+                """
             }
         }
     }
