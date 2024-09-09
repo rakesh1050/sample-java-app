@@ -23,11 +23,12 @@ pipeline {
         }
         stage("Docker Build"){
             steps{
-                sh """
-                who
-                id
-                docker image build -t rakesh1050/sampleapp .
-                """
+                sh "docker image build -t rakesh1050/sampleapp ."
+            }
+        }
+        stage("Docker Run"){
+            steps{
+                sh "docker container run -itd -p 8080:8080 rakesh105/sampleapp"
             }
         }
     }
