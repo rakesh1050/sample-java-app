@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Docker Run"){
             steps{
-                sh "docker container run -itd -p 8080:8080 rakesh105/sampleapp"
+                sh "docker container run -itd -p 8080:8080 rakesh1050/sampleapp"
             }
         }
     }
